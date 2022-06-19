@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+.component__wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 25px 50px 50px 50px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+.component__title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 25px 0;
+}
+
+.material-text-field__container {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+  padding: 16px 32px 16px 14px;
+}
+
+.material-text-field__input-text {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+.material-text-field__input-text:focus {
+  outline: none;
+}
+
+.material-text-field__input-text:focus ~ .material-text-field__label-text {
+  z-index: 1;
+  top: 0;
+  left: 10px;
+  padding: 0 4px;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  color: #32cd32;
+  transition: all 150ms linear;
+}
+
+.material-text-field__input-text:focus
+  ~ .material-text-field__activation-indicator {
+  border: 2px solid #32cd32;
+}
+
+.material-text-field__input-text:focus ~ .js__activation-indicator--warning {
+  border: 2px solid #b00020;
+}
+
+.material-text-field__input-text:focus ~ .js__label-text--warning {
+  color: #b00020;
+}
+
+.material-text-field__label-text {
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  font-size: 16px;
+  transition: all 150ms linear;
+}
+
+.material-text-field__trailing-icon {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.material-text-field__trailing-icon:hover {
+  cursor: pointer;
+}
+
+.material-text-field__activation-indicator {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 54px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.material-text-field__helper-text {
+  position: absolute;
+  bottom: -16px;
+  left: 12px;
+  vertical-align: bottom;
+  line-height: 12px;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.reset-input {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  padding: 8px 16px;
+  font-size: 12px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+
+.reset-input:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+/* JavaScript Added CSS 
+   * notice I'm using a "js" prefix. This will help me
+   * see in my code, and source files which classes are
+   * controlled with JavaScript more easily.
+   */
+.material-text-field__input-text:valid ~ .material-text-field__label-text {
+  z-index: 1;
+  top: 0;
+  left: 10px;
+  padding: 0 4px;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+.js__label-text--warning {
+  color: #b00020;
+}
+.js__activation-indicator--warning {
+  border: 1px solid #b00020;
+}
+.js__helper-text--warning {
+  color: #b00020;
+}
+.js__helper-text--success {
+  color: #32cd32;
+}
+
+/* This class is applied this whenever the
+   * input doesn't pass our validation tests.
+   */
+.js__material-text-field--shake {
+  animation: shake 0.82s;
+}
+
+/* This is a simple animation that will shake 
+   * the input. We will apply this whenever the
+   * input doesn't pass our validation tests.
+   */
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
+  }
+  40%,
+  60% {
+    transform: translateX(4px);
+  }
+}
